@@ -7,6 +7,13 @@ import { getSortedPostsData } from '../lib/posts'
 import styles from '../styles/Home.module.css'
 import utilStyles from '../styles/utils.module.css';
 
+
+type Props = {
+  id: string
+  title: string
+  date: string
+}
+
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
@@ -16,8 +23,7 @@ export async function getStaticProps() {
   }
 }
 
-const Home: NextPage = ({ allPostsData }) => {
-  console.log(allPostsData)
+const Home = ({ allPostsData }: { allPostsData: Props[]}) => {
   return (
     <Layout home>
       <Head>
